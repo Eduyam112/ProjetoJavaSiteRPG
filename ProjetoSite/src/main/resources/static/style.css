@@ -1,0 +1,223 @@
+/* --- Configurações Globais e Reset --- */
+:root {
+    --cor-fundo-escuro: #1a1a2e;
+    --cor-fundo-card: #16213e;
+    --cor-borda: #0f3460;
+    --cor-texto-principal: #e94560;
+    --cor-texto-secundario: #c5c6c7;
+    --fonte-titulo: 'Cinzel', serif;
+    --fonte-corpo: 'Lato', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- Estilo do Corpo da Página --- */
+body {
+    font-family: var(--fonte-corpo);
+    color: var(--cor-texto-secundario);
+    background-color: var(--cor-fundo-escuro);
+    
+    /* Centraliza o conteúdo principal na tela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    
+    /* Imagem de fundo opcional (descomente para usar) */
+    /*
+    background-image: url('https://www.transparenttextures.com/patterns/dark-leather.png');
+    */
+}
+
+/* --- Container Principal do Menu --- */
+.menu-container {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+.menu-header {
+    margin-bottom: 40px;
+}
+
+.menu-header h1 {
+    font-family: var(--fonte-titulo);
+    font-size: 3rem; /* 48px */
+    color: var(--cor-texto-principal);
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+    margin-bottom: 10px;
+}
+
+.menu-header p {
+    font-size: 1.1rem; /* 18px */
+}
+
+/* --- Grid com as Opções de RPG --- */
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Uma coluna por padrão (mobile) */
+    gap: 25px;
+}
+
+/* --- Estilo dos Cards de Opção --- */
+.option-card {
+    background-color: var(--cor-fundo-card);
+    border: 2px solid var(--cor-borda);
+    border-radius: 8px;
+    padding: 30px;
+    text-decoration: none;
+    color: var(--cor-texto-secundario);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.option-card h2 {
+    font-family: var(--fonte-titulo);
+    font-size: 1.8rem; /* 29px */
+    color: var(--cor-texto-principal);
+    margin-bottom: 10px;
+}
+
+.option-card .card-description {
+    font-size: 1rem; /* 16px */
+    line-height: 1.5;
+}
+
+/* Efeito ao passar o mouse por cima do card */
+.option-card:hover {
+    transform: translateY(-10px); /* Eleva o card */
+    border-color: var(--cor-texto-principal);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Rodapé --- */
+footer {
+    position: absolute;
+    bottom: 15px;
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
+/* --- Media Query para Telas Maiores (Responsividade) --- */
+@media (min-width: 768px) {
+    .options-grid {
+        grid-template-columns: 1fr 1fr; /* Duas colunas em telas maiores */
+    }
+
+    .menu-header h1 {
+        font-size: 4rem; /* 64px */
+    }
+
+    .char-form {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        font-family: var(--fonte-titulo);
+        font-size: 1.1rem;
+        color: var(--cor-texto-secundario);
+        margin-bottom: 8px;
+        text-align: left;
+    }
+
+    /* Estilo unificado para inputs de texto, número e selects */
+    .char-form input[type="text"],
+    .char-form input[type="number"],
+    .char-form select {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+        font-family: var(--fonte-corpo);
+        color: var(--cor-texto-secundario);
+        background-color: var(--cor-fundo-escuro);
+        border: 2px solid var(--cor-borda);
+        border-radius: 6px;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .char-form input:focus,
+    .char-form select:focus {
+        outline: none;
+        border-color: var(--cor-texto-principal);
+        box-shadow: 0 0 10px rgba(233, 69, 96, 0.3);
+    }
+
+    /* Título para a seção de atributos */
+    .section-title {
+        font-family: var(--fonte-titulo);
+        color: var(--cor-texto-principal);
+        text-align: left;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid var(--cor-borda);
+        padding-bottom: 5px;
+    }
+
+    /* Grid para os atributos */
+    .attribute-grid {
+        display: grid;
+        grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
+        gap: 15px;
+    }
+
+    /* Ações do formulário (botões) */
+    .form-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 40px;
+    }
+
+    /* Botão principal de Ação */
+    .cta-button {
+        padding: 12px 25px;
+        font-family: var(--fonte-titulo);
+        font-size: 1.1rem;
+        color: #ffffff;
+        background-color: var(--cor-texto-principal);
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: filter 0.2s ease, transform 0.2s ease;
+        text-transform: uppercase;
+    }
+
+    .cta-button:hover {
+        filter: brightness(1.2);
+        transform: scale(1.02);
+    }
+
+    /* Link de "Voltar" */
+    .back-link {
+        font-family: var(--fonte-corpo);
+        color: var(--cor-texto-secundario);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    .back-link:hover {
+        color: var(--cor-texto-principal);
+        text-decoration: underline;
+    }
+
+
+    /* --- Media Query para Atributos (Responsividade) --- */
+    @media (min-width: 768px) {
+        .attribute-grid {
+            /* 3 colunas em telas maiores */
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+}

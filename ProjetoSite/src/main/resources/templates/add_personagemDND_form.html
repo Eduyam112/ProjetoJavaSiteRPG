@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Novo Personagem - D&D 5e</title>
+    
+    <link rel="stylesheet" th:href="@{/style.css}">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="menu-container">
+        <header class="menu-header">
+            <h1>Novo Personagem (D&D 5e)</h1>
+        </header>
+
+        <form class="char-form" th:action="@{/personagens/dnd}" method="post">
+
+            <div class="form-group">
+                <label for="nome">Nome do Personagem</label>
+                <input type="text" id="nome" name="nome" placeholder="Ex: Torus, o Valente" required>
+            </div>
+
+            <div class="form-group">
+                <label for="raca">Raça</label>
+                <select id="raca" name="raca" required>
+                    <option value="" disabled selected>Selecione uma raça...</option>
+                    <option value="Humano">Humano</option>
+                    <option value="Anão">Anão</option>
+                    <option value="Elfo">Elfo</option>
+                    <option value="Halfling">Halfling</option>
+                    <option value="Draconato">Draconato</option>
+                    <option value="Gnomo">Gnomo</option>
+                    <option value="Meio-Elfo">Meio-Elfo</option>
+                    <option value="Meio-Orc">Meio-Orc</option>
+                    <option value="Tiefling">Tiefling</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="classe">Classe</label>
+                <select id="classe" name="classe" required>
+                    <option value="" disabled selected>Selecione uma classe...</option>
+                    <option value="GUERREIRO">Guerreiro</option>
+                    <option value="MAGO">Mago</option>
+                    <option value="LADINO">Ladino</option>
+                    <option value="CLERIGO">Clérigo</option>
+                    <option value="BARBARO">Bárbaro</option>
+                    <option value="PALADINO">Paladino</option>
+                    </select>
+            </div>
+
+            <h2 class="section-title">Atributos</h2>
+            <div class="attribute-grid">
+                <div class="form-group">
+                    <label for="forca">Força</label>
+                    <input type="number" id="forca" name="forca" min="3" max="20" value="10" required>
+                </div>
+                <div class="form-group">
+                    <label for="destreza">Destreza</label>
+                    <input type="number" id="destreza" name="destreza" min="3" max="20" value="10" required>
+                </div>
+                <div class="form-group">
+                    <label for="constituicao">Constituição</label>
+                    <input type="number" id="constituicao" name="constituicao" min="3" max="20" value="10" required>
+                </div>
+                <div class="form-group">
+                    <label for="inteligencia">Inteligência</label>
+                    <input type="number" id="inteligencia" name="inteligencia" min="3" max="20" value="10" required>
+                </div>
+                <div class="form-group">
+                    <label for="sabedoria">Sabedoria</label>
+                    <input type="number" id="sabedoria" name="sabedoria" min="3" max="20" value="10" required>
+                </div>
+                <div class="form-group">
+                    <label for="carisma">Carisma</label>
+                    <input type="number" id="carisma" name="carisma" min="3" max="20" value="10" required>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <a th:href="@{/dnd5e}" class="back-link">Voltar</a>
+                <button type="submit" class="cta-button">Salvar Personagem</button>
+            </div>
+
+        </form>
+
+    </main>
+</body>
+</html>
